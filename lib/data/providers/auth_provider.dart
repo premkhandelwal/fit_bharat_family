@@ -9,7 +9,7 @@ class AuthProvider {
     String url = Secrets.baseURL + "customers/";
     String token = base64.encode(
         utf8.encode(Secrets.customerKey + ":" + Secrets.customerSecret));
-    ;
+    
     Uri uri = Uri.parse(url);
     var res = await http.post(uri,
         headers: <String, String>{
@@ -17,7 +17,6 @@ class AuthProvider {
           'Authorization': "Basic " + token
         },
         body: user.toJson());
-    print(res.body);
     return res.statusCode == 201;
   }
 }

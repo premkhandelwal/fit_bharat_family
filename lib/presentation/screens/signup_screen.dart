@@ -1,11 +1,9 @@
 import 'package:fit_bharat_family/config/globals/common_functions.dart';
 import 'package:fit_bharat_family/data/models/user.dart';
-import 'package:fit_bharat_family/logic/bloc/auth_bloc.dart';
+import 'package:fit_bharat_family/logic/blocs/auth/auth_bloc.dart';
 import 'package:fit_bharat_family/presentation/screens/home_screen.dart';
 import 'package:fit_bharat_family/presentation/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'package:fit_bharat_family/presentation/screens/signup_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -48,7 +46,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         },
         builder: (context, state) {
           if (state is SignUpInProgressState) {
-            return Center(child: const CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           return ListView(
             padding: const EdgeInsets.all(20.0),
